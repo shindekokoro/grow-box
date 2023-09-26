@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS grow_box;
+
+CREATE DATABASE grow_box;

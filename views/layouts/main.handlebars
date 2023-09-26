@@ -1,0 +1,46 @@
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>
+      {{#if title}}
+        {{title}}
+      {{else}}
+        Spin Blog
+      {{/if}}
+    </title>
+    <link rel='stylesheet' type='text/css' href='/css/jass.css' />
+    <link rel='stylesheet' type='text/css' href='/css/style.css' />
+  </head>
+
+  <body>
+
+    <nav>
+      <a href='/'>Home</a>
+      <a href='/dashboard'>Dashboard</a>
+      {{#if loggedIn}}
+        <a id='logout' href='#logout'>Logout</a>
+        <a id='user' href='/profile'>{{username}}</a>
+      {{else}}
+        <a id='login' href='/login'>Login</a>
+      {{/if}}
+    </nav>
+    <header>
+      {{#if title}}
+        <h3>: {{title}}</h3>
+      {{/if}}
+    </header>
+    <main>
+      <div class='container'>
+        {{{body}}}
+      </div>
+      {{#if loggedIn}}
+        <aside>
+          <div>
+          </div>
+        </aside>
+        <script src='/js/logout.js'></script>
+      {{/if}}
+    </main>
+  </body>
+</html>
