@@ -1,12 +1,12 @@
 :root {
-  --primary: ;
-  --secondary: ;
-  --tertiary: ;
-  --quaternary: ;
-  --light: ;
-  --dark: ;
-  --error: ;
-  --border-color: ;
+  --primary: #526534;
+  --secondary: #8d9e6f;
+  --tertiary: #b2bda0;
+  --quaternary: #ebefe3;
+  --light: #ebefe3;
+  --dark: #2f3b1c;
+  --error: #f00;
+  --border-color: #2f3b1c;
   --border-radius: 0.3rem;
 }
 

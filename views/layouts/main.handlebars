@@ -6,7 +6,7 @@
       {{#if title}}
         {{title}}
       {{else}}
-        Spin Blog
+        Grow Box
       {{/if}}
     </title>
     <link rel='stylesheet' type='text/css' href='/css/jass.css' />
@@ -17,7 +17,7 @@
 
     <nav>
       <a href='/'>Home</a>
-      <a href='/dashboard'>Dashboard</a>
+      <a href='/progress'>Progress</a>
       {{#if loggedIn}}
         <a id='logout' href='#logout'>Logout</a>
         <a id='user' href='/profile'>{{username}}</a>
@@ -34,11 +34,13 @@
       <div class='container'>
         {{{body}}}
       </div>
+      <aside>
+        <h3>About Your Plant</h3>
+        <div>
+          Plant Info if logged in/ else plant of the day?
+        </div>
+      </aside>
       {{#if loggedIn}}
-        <aside>
-          <div>
-          </div>
-        </aside>
         <script src='/js/logout.js'></script>
       {{/if}}
     </main>
