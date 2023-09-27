@@ -32,14 +32,23 @@ router.get('/progress', (req, res) => {
   });
 });
 
-//Profile Route
-router.get('/profile', (req,res) => {
+//Garden Route
+router.get('/garden', (req,res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
-  return res.render('profile', {
-    title: 'Profile'
+  return res.render('garden', {
+    title: 'Garden'
   });
 });
+
+router.get('/signup', (req,res) => {
+  if (req.session.loggedIn) {
+    return res.redirect('/');
+  }
+  return res.render('signup', {
+    title: 'Signup'
+  });
+})
 
 module.exports = router;
