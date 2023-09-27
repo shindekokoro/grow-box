@@ -1,1 +1,18 @@
-<p>This will be progress</p>
+<div class="progress-container">
+    <div class="garden-header col-md-10" >
+        <h2>My progress</h2>
+    </div>
+<div class="chart col-md-10">
+<!--chart goes here-->
+
+</div>
+    {{#each logs as |log|}}
+    <div class="plant col-md-5">
+        <p>
+            {{log.id}}
+            {{log.text}}
+        </p>
+    </div>
+    {{/each}}
+</div>
+<!--the aside on this page could contain the garden list-->
