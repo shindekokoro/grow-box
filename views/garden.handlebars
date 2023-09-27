@@ -1,0 +1,14 @@
+<div class="garden-container">
+    <div class="garden-header col-md-10" >
+        <h2>My Garden</h2>
+    </div>    
+    {{#each plants as |plant|}}
+    <div class="plant col-md-5">
+        <p>
+            {{plant.id}}
+            {{plant.plant_name}}
+        </p>
+    </div>
+    {{/each}}
+</div>
+<!--need to add form for adding plants-->
