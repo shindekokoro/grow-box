@@ -68,7 +68,7 @@ nav a:hover {
   float: right;
 }
 .btn.btn-primary {
-  background-color: var(--quaternary);
+  background-color: var(--dark);
   color: var(--light);
 }
 
@@ -168,4 +168,7 @@ form {
 }
 form textarea {
   width: 100%;
+}
+.plantInfo{
+  flex-wrap: wrap;
 }
