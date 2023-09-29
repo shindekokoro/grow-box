@@ -14,24 +14,25 @@
   </head>
 
   <body>
-
     <nav>
       <a href='/'>Home</a>
-      <a href='/progress'>Progress</a>
+
       {{#if loggedIn}}
+        <a href='/progress'>Progress</a>
+        <a href='/garden'>Garden</a>
         <a id='logout' href='#logout'>Logout</a>
-        <a id='user' href='/garden'>{{userGarden}}</a>
+        <a id='user' href='/garden'>{{username}}</a>
       {{else}}
         <a id='login' href='/login'>Login</a>
       {{/if}}
     </nav>
     <header>
       <h3>
-      {{#if title}}
-        {{title}}
+        {{#if title}}
+          {{title}}
         {{else}}
-        Grow Box
-      {{/if}}
+          Grow Box
+        {{/if}}
       </h3>
     </header>
     <main>
@@ -39,12 +40,12 @@
         {{{body}}}
       </div>
       {{#if loggedIn}}
-      <aside class="plantInfo">
-        <h3>About Your Plant</h3>
-        <div>
-          Plant Info if logged in/ else plant of the day?
-        </div>
-      </aside>
+        <aside class='plantInfo'>
+          <h3>About Your Plant</h3>
+          <div>
+            Plant Info if logged in/ else plant of the day?
+          </div>
+        </aside>
       {{/if}}
       {{#if loggedIn}}
         <script src='/js/logout.js'></script>
