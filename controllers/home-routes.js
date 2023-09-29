@@ -3,9 +3,6 @@ const router = require('express').Router();
 // GET all posts for homepage
 router.get('/', async (req, res) => {
   try {
-    if (req.session.loggedIn) {
-      return res.redirect('/profile');
-    }
     return res.render('homepage');
   } catch (err) {
     console.error(err);
@@ -25,9 +22,6 @@ router.get('/login', (req, res) => {
 
 // Progress Route
 router.get('/progress', (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect('/');
-  }
   return res.render('progress', {
     title: 'Progress'
   });
@@ -35,9 +29,6 @@ router.get('/progress', (req, res) => {
 
 //Garden Route
 router.get('/garden', (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect('/');
-  }
   return res.render('garden', {
     title: 'Garden'
   });
