@@ -1,18 +1,21 @@
-<div class="progress-container">
-    <div class="garden-header col-md-10" >
-        <h2>My progress</h2>
-    </div>
-<div class="chart col-md-10">
-<!--chart goes here-->
+<div class='progress-container'>
+  <div class='chart col-md-10'>
+    <!--chart goes here-->
 
-</div>
-    {{#each logs as |log|}}
-    <div class="plant col-md-5">
-        <p>
-            {{log.id}}
-            {{log.text}}
-        </p>
+  </div>
+  {{#each logs as |log|}}
+    <div class='plant col-md-5'>
+      <h4>{{format_date log.createdAt}}</h4>
+      <table>
+        <tr><td colspan='2'>Description: {{log.description}}</td></tr>
+        <tr><td>Water Amount</td><td>{{log.water_amt}} oz.</td></tr>
+        <tr><td>Temperature</td><td>{{log.temperature}}°</td></tr>
+        <tr><td>Humidity</td><td>{{log.humidity}}%</td></tr>
+        <tr><td>Height</td><td>{{log.height}}in</td></tr>
+        <tr><td>Leaf Growth</td><td>{{log.leaf_growth}}</td></tr>
+        <tr><td>Weather</td><td>{{log.weather}}</td></tr>
+      </table>
     </div>
-    {{/each}}
+  {{/each}}
 </div>
 <!--the aside on this page could contain the garden list-->
