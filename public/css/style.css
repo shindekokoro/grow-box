@@ -23,7 +23,7 @@ header {
   width: 100%;
   padding: 40px 20px;
   text-align: left;
-  background: var(--quaternary);
+  background: var(--secondary);
   color: var(--light);
   display: flex;
   align-items: baseline;
@@ -106,6 +106,10 @@ aside {
   float: right;
 }
 
+.progress-container table {
+  width: 400px;
+}
+
 .post,
 .comment {
   margin: 20px;
@@ -169,6 +173,6 @@ form {
 form textarea {
   width: 100%;
 }
-.plantInfo{
+.plantInfo {
   flex-wrap: wrap;
 }
