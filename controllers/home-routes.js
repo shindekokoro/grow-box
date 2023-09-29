@@ -2,9 +2,10 @@ const router = require('express').Router();
 
 // GET all posts for homepage
 router.get('/', async (req, res) => {
-  try { if (req.session.loggedIn) {
-    return res.redirect('/profile')
-  }
+  try {
+    if (req.session.loggedIn) {
+      return res.redirect('/profile');
+    }
     return res.render('homepage');
   } catch (err) {
     console.error(err);
@@ -33,7 +34,7 @@ router.get('/progress', (req, res) => {
 });
 
 //Garden Route
-router.get('/garden', (req,res) => {
+router.get('/garden', (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
@@ -42,13 +43,13 @@ router.get('/garden', (req,res) => {
   });
 });
 
-router.get('/signup', (req,res) => {
+router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
   return res.render('signup', {
     title: 'Signup'
   });
-})
+});
 
 module.exports = router;
