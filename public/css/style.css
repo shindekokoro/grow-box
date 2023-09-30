@@ -91,10 +91,42 @@ nav a:hover {
 /* CARDS */
 .container {
   width: 75%;
-  display: flex;
+  /* display: flex; */
   flex-flow: column wrap;
   margin-left: 20px;
   float: left;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 400px;
+}
+.chart-buttons {
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; */
+  width: 18%;
+  margin: auto 0px auto auto;
+}
+.chart-buttons button {
+  width: 80%;
+  height: 36px;
+  margin: 5px;
+}
+.chart {
+  margin-left: auto;
+  width: 70%;
+}
+
+.log {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.log table {
+  width: 350px;
+  padding: 10px;
 }
 
 aside {
@@ -104,10 +136,6 @@ aside {
   text-align: left;
   color: var(--light);
   float: right;
-}
-
-.progress-container table {
-  width: 400px;
 }
 
 .post,
@@ -178,7 +206,4 @@ form textarea {
 }
 form label {
   margin: 0px 0px 10px 0px !important;
-}
-.plantInfo {
-  flex-wrap: wrap;
 }
