@@ -25,9 +25,7 @@ const newPlantHandler = async (event) => {
 
 const delButtonHandler = async (event) => {
   if (event.target) {
-    console.log(event);
     const id = event.target.getAttribute('data-id');
-    console.log(id);
     const response = await fetch(`/api/garden/${id}`, {
       method: 'DELETE'
     });
@@ -47,7 +45,6 @@ document
 let deleteButtons = document.querySelectorAll('.delete-button');
 if (deleteButtons) {
   deleteButtons.forEach((button) => {
-    console.log(button);
     button.addEventListener('click', delButtonHandler);
   });
 }
