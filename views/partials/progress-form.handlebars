@@ -1,19 +1,19 @@
   <form class='form new-log-form'>
     <div class='form-group'>
-      <label for='describe-input'>Add Note</label>
-      <textarea class='form-input' type='text' id='describe-input' /></textarea>
+      <label for='description-input'>Add Note</label>
+      <textarea class='form-input' type='text' id='description-input' /></textarea>
     </div>
     <div class='form-group'>
       <label for='water-input'>Water Added (In fl-oz)</label>
       <input class='form-input' type='number' id='water-input'/>
     </div>
      <div class='form-group'>
-      <label for='temp-input'>Temperature</label>
-      <input class='form-input' type='number' id='temp-input'/>
+      <label for='temperature-input'>Temperature</label>
+      <input class='form-input' type='number' id='temperature-input'/>
     </div>
      <div class='form-group'>
-      <label for='humid-input'>Humidity</label>
-      <input class='form-input' type='number' id='humid-input'/>
+      <label for='humidity-input'>Humidity</label>
+      <input class='form-input' type='number' id='humidity-input'/>
     </div>
      <div class='form-group'>
       <label for='height-input'>Height</label>
@@ -21,13 +21,15 @@
     </div>
      <div class='form-group'>
       <label for='leaf-input'>Leaf Growth</label>
-      <input class='form-input' type='number' id='leaf-input'/>
+      <input class='form-input' type='text' id='leaf-input'/>
     </div>
      <div class='form-group'>
       <label for='weather-input'>Weather</label>
       <input class='form-input' type='text' id='weather-input'/>
     </div>
-        <div class='form-group'>
-      <button class='btn btn-primary' type='submit'>Submit</button>
+    <div class='form-group'>
+      <button class='btn btn-primary' value='{{getGardenID progressLogs}}' id='submit-progress' type='submit'>Submit</button>
     </div>
   </form>
+
+  <script src='../js/addLog.js'></script>
