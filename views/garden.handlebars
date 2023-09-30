@@ -2,17 +2,40 @@
     <div class="garden-header col-md-10" >
         <h2>My Garden</h2>
     </div>
+    <form class='form new-plant-form'>
     <div class='form-group'>
-    <label for="plant-input">search plants</label>
-    <input class="form-input" type="search" id="plant-input" />
-    <button class="btn btn-primary" type="submit">add plant</button>
-</div>    
-    {{#each plants as |plant|}}
+        <label for="plant-input">Add Plant</label>
+        <input class="form-input" type="text" id="plant-input" />
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+    </form>
+    
+    {{#if plants.length}}
+    <div class="col-md-6 plant-list">
+        <h3>My Plants:</h3>
+
+        {{#each plants as |plant|}}
+        <div class="row mb-2">
+            <div class="col-md-8">
+                <h4>{{plant.name}}</h4>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-sm btn-danger" data-id="{{plant.id}}">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
+
+<script src="./js/editGarden.js"></script>
+
+
+    {{!-- {{#each plants as |plant|}}
     <div class="plant col-md-5">
         <p>
             {{plant.id}}
             {{plant.plant_name}}
         </p>
     </div>
-    {{/each}}
-</div>
+    {{/each}} --}}
