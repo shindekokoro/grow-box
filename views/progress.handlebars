@@ -1,62 +1,32 @@
-<div class='progress-container'>
-  <div class='chart col-md-10'>
-    <!--chart goes here-->
-  <div style ='width: 800px;'>
-    <canvas id='progress'>
+<div class="container">
+  <div class='progress-container'>
+    <div class='chart col-md-10'>
+      <!--chart goes here-->
+    <div style ='width: 800px;'>
+      <canvas id='progress'>
 
-    </canvas>
+      </canvas>
+    </div>
+    <script type='module' src='../public/js/chartProg.js'></script>
+    </div>
+    {{#each logs as |log|}}
+      <div class='plant col-md-5'>
+        <h4>{{format_date log.createdAt}}</h4>
+        <table>
+          <tr><td colspan='2'>Description: {{log.description}}</td></tr>
+          <tr><td>Water Amount</td><td>{{log.water_amt}} oz.</td></tr>
+          <tr><td>Temperature</td><td>{{log.temperature}}°</td></tr>
+          <tr><td>Humidity</td><td>{{log.humidity}}%</td></tr>
+          <tr><td>Height</td><td>{{log.height}}in</td></tr>
+          <tr><td>Leaf Growth</td><td>{{log.leaf_growth}}</td></tr>
+          <tr><td>Weather</td><td>{{log.weather}}</td></tr>
+        </table>
+      </div>
+    {{/each}}
   </div>
-  <script type='module' src='../public/js/chartProg.js'></script>
-  </div>
-  <form class='form new-log-form'>
-    <div class='form-group'>
-      <label for='describe-input'>Add Note</label>
-      <textarea class='form-input' type='text' id='describe-input' /></textarea>
-    </div>
-    <div class='form-group'>
-      <label for='water-input'>Water Added (In fl-oz)</label>
-      <input class='form-input' type='number' id='water-input'/>
-    </div>
-     <div class='form-group'>
-      <label for='temp-input'>Temperature</label>
-      <input class='form-input' type='number' id='temp-input'/>
-    </div>
-     <div class='form-group'>
-      <label for='humid-input'>Humidity</label>
-      <input class='form-input' type='number' id='humid-input'/>
-    </div>
-     <div class='form-group'>
-      <label for='height-input'>Height</label>
-      <input class='form-input' type='number' id='height-input'/>
-    </div>
-     <div class='form-group'>
-      <label for='leaf-input'>Leaf Growth</label>
-      <input class='form-input' type='number' id='leaf-input'/>
-    </div>
-     <div class='form-group'>
-      <label for='weather-input'>Weather</label>
-      <input class='form-input' type='text' id='weather-input'/>
-    </div>
-
-  </form>
-  {{#each logs as |log|}}
-    <div class='plant col-md-5'>
-      <h4>{{format_date log.createdAt}}</h4>
-      <table>
-        <tr><td colspan='2'>Description: {{log.description}}</td></tr>
-        <tr><td>Water Amount</td><td>{{log.water_amt}} oz.</td></tr>
-        <tr><td>Temperature</td><td>{{log.temperature}}°</td></tr>
-        <tr><td>Humidity</td><td>{{log.humidity}}%</td></tr>
-        <tr><td>Height</td><td>{{log.height}}in</td></tr>
-        <tr><td>Leaf Growth</td><td>{{log.leaf_growth}}</td></tr>
-        <tr><td>Weather</td><td>{{log.weather}}</td></tr>
-      </table>
-    </div>
-  {{/each}}
 </div>
+<aside>
+  {{> progress-form}}
+</aside>
 
 <script src='./js/addLog.js'></script>
-
-
-<!--the aside on this page could contain the garden list-->
-<!-- size of form needs to be adjusted-->

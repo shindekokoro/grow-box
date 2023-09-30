@@ -36,20 +36,10 @@
       </h3>
     </header>
     <main>
-      <div class='container'>
-        {{{body}}}
-      </div>
-      {{#if loggedIn}}
-        <aside class='plantInfo'>
-          <h3>About Your Plant</h3>
-          <div>
-            Plant Info if logged in/ else plant of the day?
-          </div>
-        </aside>
-      {{/if}}
-      {{#if loggedIn}}
-        <script src='/js/logout.js'></script>
-      {{/if}}
+      {{{body}}}
     </main>
   </body>
+  {{#if loggedIn}}
+    <script src='/js/logout.js'></script>
+  {{/if}}
 </html>

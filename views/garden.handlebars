@@ -1,41 +1,26 @@
-<div class="garden-container">
-    <div class="garden-header col-md-10" >
-        <h2>My Garden</h2>
-    </div>
-    <form class='form new-plant-form'>
-    <div class='form-group'>
-        <label for="plant-input">Add Plant</label>
-        <input class="form-input" type="text" id="plant-input" />
-        <button class="btn btn-primary" type="submit">Save</button>
-    </div>
-    </form>
-    
+<div class="container">
+    <div class='garden-container'>
     {{#if plants.length}}
-    <div class="col-md-6 plant-list">
-        <h3>My Plants:</h3>
-
+        <div class='col-md-6 plant-list'>
         {{#each plants as |plant|}}
-        <div class="row mb-2">
-            <div class="col-md-8">
-                <h4>{{plant.name}}</h4>
+            <div class='row mb-2'>
+            <div class='col-md-8'>
+                <a href='/progress/{{plant.id}}'><h5>{{plant.name}}</h5></a>
             </div>
-            <div class="col-md-4">
-                <button class="btn btn-sm btn-danger" data-id="{{plant.id}}">DELETE</button>
+            <div class='col-md-4'>
+                <button
+                class='btn btn-sm btn-danger delete-button'
+                data-id='{{plant.id}}'
+                >DELETE</button>
             </div>
-        </div>
+            </div>
         {{/each}}
-    </div>
+        </div>
     {{/if}}
-</div>
-
-<script src="./js/editGarden.js"></script>
-
-
-    {{!-- {{#each plants as |plant|}}
-    <div class="plant col-md-5">
-        <p>
-            {{plant.id}}
-            {{plant.plant_name}}
-        </p>
     </div>
-    {{/each}} --}}
+</div>
+<aside>
+    {{> garden-form}}
+</aside>
+
+<script src='./js/editGarden.js'></script>
