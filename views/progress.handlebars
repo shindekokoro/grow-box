@@ -2,11 +2,14 @@
   <div class='progress-container'>
     <div style='width: 800px;'>
         <canvas id='progress-chart'></canvas>
-        {{> progress-chart}}
       </div>
-    {{#each progressLogs as |log|}}
-      {{> progress-log}}
-    {{/each}}
+      {{> progress-chart}}
+    </div>
+    <div class='log'>
+      {{#each progressLogs as |log|}}
+        {{> progress-log}}
+      {{/each}}
+    </div>
   </div>
 </div>
 <aside>
