@@ -1,27 +1,11 @@
-<div class="container">
+<div class='container'>
   <div class='progress-container'>
-    <div class='chart col-md-10'>
-      <!--chart goes here-->
-    <div style ='width: 800px;'>
-      <canvas id='progress'>
-
-      </canvas>
-    </div>
-    <script type='module' src='../public/js/chartProg.js'></script>
-    </div>
-    {{#each logs as |log|}}
-      <div class='plant col-md-5'>
-        <h4>{{format_date log.createdAt}}</h4>
-        <table>
-          <tr><td colspan='2'>Description: {{log.description}}</td></tr>
-          <tr><td>Water Amount</td><td>{{log.water_amt}} oz.</td></tr>
-          <tr><td>Temperature</td><td>{{log.temperature}}°</td></tr>
-          <tr><td>Humidity</td><td>{{log.humidity}}%</td></tr>
-          <tr><td>Height</td><td>{{log.height}}in</td></tr>
-          <tr><td>Leaf Growth</td><td>{{log.leaf_growth}}</td></tr>
-          <tr><td>Weather</td><td>{{log.weather}}</td></tr>
-        </table>
+    <div style='width: 800px;'>
+        <canvas id='progress-chart'></canvas>
+        {{> progress-chart}}
       </div>
+    {{#each progressLogs as |log|}}
+      {{> progress-log}}
     {{/each}}
   </div>
 </div>
