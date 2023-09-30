@@ -41,6 +41,7 @@ Progress.init(
     },
     garden_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'garden',
         key: 'id'
@@ -48,6 +49,7 @@ Progress.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id'
