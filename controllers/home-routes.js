@@ -31,13 +31,14 @@ router.get('/login', (req, res) => {
 
 // Progress Route
 router.get('/progress', async (req, res) => {
-  const dbProgress = await Progress.findAll({
+  const progressLogs = await Progress.findAll({
     where: { user_id: req.session.user_id },
     raw: true
   });
   return res.render('progress', {
     title: 'Progress',
-    logs: dbProgress,
+    progress: true,
+    progressLogs,
     loggedIn: req.session.loggedIn,
     username: req.session.username
   });
