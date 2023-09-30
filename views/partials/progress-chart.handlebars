@@ -1,0 +1,71 @@
+<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+<script type='module'>
+  const labels = [
+    'Water (oz)',
+    'Temperature (°)',
+    'Humidity (%)',
+    'Height (in.)'
+  ];
+  const water_amt = [];
+  const temperature = [];
+  const humidity = [];
+  const height = [];
+
+  {{#each progressLogs as |log|}}
+    water_amt.push('{{log.water_amt}}');
+    temperature.push('{{log.temperature}}');
+    humidity.push('{{log.humidity}}');
+    height.push('{{log.height}}');
+  {{/each}}
+  console.log(water_amt, temperature, humidity, height)
+  const data = {
+  labels: labels,
+  datasets: [
+    {
+      label: labels[0],
+      data: water_amt,
+      backgroundColor: 'SlateBlue',
+    },
+    {
+      label: labels[1],
+      data: temperature,
+      backgroundColor: 'Tomato',
+    },
+    {
+      label: labels[2],
+      data: humidity,
+      backgroundColor: 'LightGray',
+    },
+    {
+      label: labels[3],
+      data: height,
+      backgroundColor: 'Orange',
+    }
+  ]
+  };
+  const ctx = document.getElementById('progress-chart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: '{{progressLogs.name}} Progress'
+        },
+      },
+      responsive: true,
+      interaction: {
+        intersect: false,
+      },
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          stacked: false
+        }
+      }
+    }
+  });
+</script>
