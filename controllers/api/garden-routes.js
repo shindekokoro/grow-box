@@ -2,11 +2,13 @@ const router = require('express').Router();
 
 const Garden = require('../../models/Garden');
 
+// /api/garden
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body.name);
     const gardenPost = await Garden.create({
       name: req.body.name,
-      user_id: req.body.name
+      user_id: req.session.user_id
     });
     return res.status(200).json(gardenPost);
   } catch (error) {
