@@ -1,8 +1,10 @@
 const router = require('express').Router();
 
 const { Progress, Garden } = require('../../models');
+const isAuthed = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+//full route is /api/progress/garden_id
+router.post('/:id', isAuthed, async (req, res) => {
   try {
     const progressPost = await Progress.create({
       description: req.body.description,
@@ -20,8 +22,8 @@ router.post('/', async (req, res) => {
     return res.status(500).json(error);
   }
 });
-//full route api/progress/garden
-router.get('/garden/:id', async (req, res) => {
+//full route /api/garden/garden_id
+router.get('/garden/:id', isAuthed, async (req, res) => {
   try {
     const gardenList = await Progress.findAll({
       where: { garden_id: req.params.id },
