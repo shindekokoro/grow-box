@@ -9,5 +9,8 @@ module.exports = {
   },
   equal: (value, title) => {
     return value === title;
+  },
+  getGardenID: (logs) => {
+    return logs[0].garden_id;
   }
 };

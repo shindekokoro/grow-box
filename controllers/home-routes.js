@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Progress, Garden } = require('../models');
+const isAuthed = require('../utils/auth');
 
 // GET all posts for homepage
 router.get('/', async (req, res) => {
@@ -30,9 +31,11 @@ router.get('/login', (req, res) => {
 });
 
 // Progress Route
-router.get('/progress', async (req, res) => {
+router.get('/progress/:id?', isAuthed, async (req, res) => {
+  let where = { user_id: req.session.user_id };
+  req.params.id ? (where.garden_id = req.params.id) : '';
   const progressLogs = await Progress.findAll({
-    where: { user_id: req.session.user_id },
+    where,
     raw: true
   });
   return res.render('progress', {
@@ -45,7 +48,7 @@ router.get('/progress', async (req, res) => {
 });
 
 //Garden Route
-router.get('/garden', async (req, res) => {
+router.get('/garden', isAuthed, async (req, res) => {
   const dbGarden = await Garden.findAll({
     where: { user_id: req.session.user_id },
     raw: true
