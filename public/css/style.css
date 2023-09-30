@@ -100,7 +100,7 @@ nav a:hover {
 aside {
   width: 20%;
   display: flex;
-  padding: 20px;
+  padding: 0px 20px;
   text-align: left;
   color: var(--light);
   float: right;
@@ -172,6 +172,12 @@ form {
 }
 form textarea {
   width: 100%;
+}
+.form-group {
+  color: var(--dark);
+}
+form label {
+  margin: 0px 0px 10px 0px !important;
 }
 .plantInfo {
   flex-wrap: wrap;

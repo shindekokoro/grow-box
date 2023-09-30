@@ -1142,15 +1142,15 @@ form label,
 form .form-label {
   display: inline-block;
   font-size: 1.2rem;
-  margin: 0.625rem 0 0.25rem 0.3rem;
+  margin: 0.5rem 0 0.1rem 0.1rem;
 }
 
 form .form-input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.15rem;
   color: #1a1a1a;
   background-color: #ffffff;
-  margin: 0.625rem 0;
+  /* margin: 0.5rem 0; */
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
