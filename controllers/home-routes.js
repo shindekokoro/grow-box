@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Progress } = require('../models');
+const { Progress, Garden } = require('../models');
 
 // GET all posts for homepage
 router.get('/', async (req, res) => {
@@ -44,9 +44,14 @@ router.get('/progress', async (req, res) => {
 });
 
 //Garden Route
-router.get('/garden', (req, res) => {
+router.get('/garden', async (req, res) => {
+  const dbGarden = await Garden.findAll({
+    where: { user_id: req.session.user_id },
+    raw: true
+  });
   return res.render('garden', {
-    title: 'Garden',
+    title: 'My Garden',
+    plants: dbGarden,
     loggedIn: req.session.loggedIn,
     username: req.session.username
   });
