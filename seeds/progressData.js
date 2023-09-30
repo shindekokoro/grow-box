@@ -10,7 +10,7 @@ const progressData = [
     height: 0,
     leaf_growth: null,
     weather: 'Sunny',
-    plant_id: 1,
+    garden_id: 1,
     user_id: 1
   },
   {
@@ -22,7 +22,7 @@ const progressData = [
     height: 1,
     leaf_growth: null,
     weather: 'Cloudy',
-    plant_id: 1,
+    garden_id: 1,
     user_id: 1
   },
   {
@@ -34,7 +34,7 @@ const progressData = [
     height: 0,
     leaf_growth: null,
     weather: 'Sunny',
-    plant_id: 1,
+    garden_id: 2,
     user_id: 1
   },
   {
@@ -46,7 +46,7 @@ const progressData = [
     height: 1,
     leaf_growth: null,
     weather: 'Cloudy',
-    plant_id: 1,
+    garden_id: 2,
     user_id: 1
   }
 ];
