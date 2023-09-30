@@ -1,14 +1,14 @@
-<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js'></script>
 <script type='module'>
   const data =  {
     labels: ['Water (oz)', 'Temperature (°)', 'Humidity (%)', 'Height (in.)'],
     datasets: [
-      {{#each progressLogs as |log|}}
+    {{#each progressLogs as |log|}}
       {
         label: '{{format_date log.createdAt}}',
         data: [{{log.water_amt}}, {{log.temperature}}, {{log.humidity}}, {{log.height}}],
       },
-      {{/each}}
+    {{/each}}
     ]
   };
   const ctx = document.getElementById('progress-chart');
