@@ -36,12 +36,14 @@ router.get('/progress/:id?', isAuthed, async (req, res) => {
   req.params.id ? (where.garden_id = req.params.id) : '';
   const progressLogs = await Progress.findAll({
     where,
+    include: [{ model: Garden }],
     raw: true
   });
   return res.render('progress', {
     title: 'Progress',
     progress: true,
     progressLogs,
+    garden_id: req.params.id ? req.params.id : null,
     loggedIn: req.session.loggedIn,
     username: req.session.username
   });

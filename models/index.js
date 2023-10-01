@@ -10,9 +10,9 @@ User.hasMany(Garden, {
 Garden.belongsTo(User, {
   foreignKey: 'user_id'
 });
-// A progress entry has one garden.
-Progress.hasOne(Garden, {
-  foreignKey: 'plant_id'
+// A progress entry belongs to a garden.
+Progress.belongsTo(Garden, {
+  foreignKey: 'garden_id'
 });
 // A progress entry has one user.
 Progress.hasOne(User, {
