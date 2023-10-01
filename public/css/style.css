@@ -1,7 +1,7 @@
 :root {
   --primary: #526534;
   --secondary: #8d9e6f;
-  --tertiary: #b2bda0;
+  --tertiary: #997950;
   --quaternary: #ebefe3;
   --light: #ebefe3;
   --dark: #2f3b1c;
@@ -21,7 +21,7 @@ body {
 
 header {
   width: 100%;
-  padding: 40px 20px;
+  padding: 5px 20px;
   text-align: left;
   background: var(--secondary);
   color: var(--light);
@@ -202,8 +202,24 @@ form textarea {
   width: 100%;
 }
 .form-group {
-  color: var(--dark);
+  color: var(--quaternary);
 }
 form label {
   margin: 0px 0px 10px 0px !important;
+}
+
+/* FONTS */
+.plant-font {
+  font-family: 'Lilita One', cursive;
+  font-size: 20px;
+}
+
+.plant-font.home {
+  font-size: 55px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.info-font {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--quaternary);
 }
