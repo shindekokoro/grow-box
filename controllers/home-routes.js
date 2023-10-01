@@ -43,6 +43,7 @@ router.get('/progress/:id?', isAuthed, async (req, res) => {
     title: 'Progress',
     progress: true,
     progressLogs,
+    garden_id: req.params.id ? req.params.id : null,
     loggedIn: req.session.loggedIn,
     username: req.session.username
   });
