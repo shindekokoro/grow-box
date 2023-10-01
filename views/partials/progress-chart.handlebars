@@ -19,7 +19,7 @@
       plugins: {
         title: {
           display: true,
-          text: '{{getGardenName progressLogs}} Progress'
+          text: '{{#if garden_id}}{{getGardenName progressLogs}} {{/if}}Progress'
         },
       },
       responsive: true,

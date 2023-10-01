@@ -126,12 +126,12 @@ nav a:hover {
 
 .log table {
   width: 350px;
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
 }
 
 aside {
   width: 20%;
-  display: flex;
+  /* display: flex; */
   padding: 0px 20px;
   text-align: left;
   color: var(--light);

@@ -32,6 +32,9 @@
       <h3 class="plant-font home">
         {{#if title}}
           {{title}}
+          {{#if garden_id}}
+            <h4>: {{getGardenName progressLogs}}</h4>
+          {{/if}}
         {{else}}
           Grow Box
         {{/if}}

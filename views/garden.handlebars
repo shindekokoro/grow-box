@@ -1,22 +1,10 @@
 <div class="container">
     <div class='garden-container'>
-    {{#if plants.length}}
-        <div class='col-md-6 plant-list'>
+        <div class='col-md-6 plant-list'></div>
         {{#each plants as |plant|}}
-            <div class='row mb-2'>
-            <div class='col-md-8'>
-                <a href='/progress/{{plant.id}}'><h5>{{plant.name}}</h5></a>
-            </div>
-            <div class='col-md-4'>
-                <button
-                class='btn btn-sm btn-danger delete-button'
-                data-id='{{plant.id}}'
-                >DELETE</button>
-            </div>
-            </div>
+            {{> garden-plants}}
         {{/each}}
         </div>
-    {{/if}}
     </div>
 </div>
 <aside>
