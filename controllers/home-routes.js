@@ -68,12 +68,22 @@ router.get('/garden', isAuthed, async (req, res) => {
   });
 });
 
+//Sign-Up Route
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
   return res.render('signup', {
     title: 'Signup'
+  });
+});
+
+//User Profile Route
+router.get('/user', isAuthed, async (req, res) => {
+  return res.render('user', {
+    title: 'User',
+    loggedIn: req.session.loggedIn,
+    username: req.session.username
   });
 });
 
