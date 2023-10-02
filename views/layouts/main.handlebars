@@ -33,12 +33,13 @@
         {{#if title}}
           {{title}}
           {{#if garden_id}}
-            <h4>: {{getGardenName progressLogs}}</h4>
+            <h4 class="plant-font home">: {{getGardenName progressLogs}}</h4>
           {{/if}}
         {{else}}
           Grow Box
         {{/if}}
       </h3>
+      <img src="./assets/growboxlogo.png" class="header logo">
     </header>
     <main>
       {{{body}}}
