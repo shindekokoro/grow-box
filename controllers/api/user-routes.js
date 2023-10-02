@@ -71,4 +71,35 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//I figure this route could be used for both user and password forms.
+//If you look at the user view you will see that I have two separate forms
+//There are also two separate handlers in editUser.js
+// UPDATE user/password
+router.put('/:id', async (req, res) => {
+  if (req.session.loggedIn) try {
+    const dbUserData = await User.update(
+      {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+        
+      },
+      {
+        where: {
+          id: req.params.id,
+        }
+      }
+    )
+    return res
+      .status(200)
+      .json({ user: dbUserData, message: 'User info has been updated!'});
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json(err);
+  }
+});
+
+
+//update home-route for user
+
 module.exports = router;
