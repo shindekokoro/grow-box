@@ -13,10 +13,10 @@
   </div>
 </div>
 <aside>
-{{> garden-form}}
 {{#if garden_id}}
   {{> progress-form}}
 {{else}}
+{{> garden-form}}
   {{#each plants as |plant|}}
     {{> garden-plants}}
   {{/each}}
