@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     // If user is logged in, always re-direct to their garden.
     if (req.session.loggedIn) {
-      return res.redirect('/garden');
+      return res.redirect('/progress');
     }
     return res.render('homepage', {
       title: 'Grow Box',
