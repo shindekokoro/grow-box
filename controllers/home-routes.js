@@ -6,13 +6,14 @@ const isAuthed = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // If user is logged in, always re-direct to their garden.
-    if (req.session.loggedIn) {
-      return res.redirect('/progress');
-    }
+    // (Disable for now, possibly confusing ux design.)
+    // if (req.session.loggedIn) {
+    //   return res.redirect('/progress');
+    // }
     return res.render('homepage', {
       title: 'Grow Box',
       loggedIn: req.session.loggedIn,
-      username: req.session.session
+      username: req.session.username
     });
   } catch (err) {
     console.error(err);

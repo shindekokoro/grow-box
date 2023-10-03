@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const isAuthed = require('../../utils/auth')
+const isAuthed = require('../../utils/auth');
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -72,41 +72,35 @@ router.post('/logout', (req, res) => {
   }
 });
 
-//I figure this route could be used for both user and password forms.
-//If you look at the user view you will see that I have two separate forms
-//There are also two separate handlers in editUser.js
 // UPDATE user/password
 router.put('/:id', isAuthed, async (req, res) => {
-  console.log(req.session.user_id, req.params.id)
+  console.log(req.session.user_id, req.params.id);
   if (req.session.user_id !== parseInt(req.params.id)) {
-    return res.status(403).json({message: 'Incorrect User'});
+    return res.status(403).json({ message: 'Incorrect User' });
   }
-  const data = {}
-  if(req.body.username) {
-    data['username'] = req.body.username;
+  const data = {};
+  if (req.body.username) {
+    data.username = req.body.username;
   }
-  if(req.body.password) {
-    data['password'] = req.body.password;
+  if (req.body.password) {
+    data.password = req.body.password;
   }
   try {
-    const dbUserData = await User.update(
-     data,
-      {
-        where: {
-          id: req.session.user_id,
-        }
+    const dbUserData = await User.update(data, {
+      where: {
+        id: req.session.user_id
       }
-    )
-    return res
-      .status(200)
-      .json({ user: dbUserData, message: 'User info has been updated!'});
-    } catch (err) {
-      console.error(err);
-      return res.status(500).json(err);
+    });
+    req.session.save(() => {
+      req.session.username = req.body.username;
+      return res
+        .status(200)
+        .json({ user: dbUserData, message: 'User info has been updated!' });
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json(err);
   }
 });
-
-
-//update home-route for user
 
 module.exports = router;
