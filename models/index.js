@@ -4,19 +4,19 @@ const Progress = require('./Progress');
 
 // As "user" has many garden/plants.
 User.hasMany(Garden, {
-  foreignKey: { model: 'user', foreignKey: 'id' }
+  foreignKey: { model: User, foreignKey: 'id' }
 });
 // A garden belongs to one user.
 Garden.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: { model: User, foreignKey: 'id'}
 });
 // A progress entry belongs to a garden.
 Progress.belongsTo(Garden, {
-  foreignKey: 'garden_id'
+  foreignKey: { model: Garden, foreignKey: 'id'}
 });
 // A progress entry has one user.
-Progress.hasOne(User, {
-  foreignKey: 'user_id'
-});
+// Progress.hasOne(User, {
+//   foreignKey: { model: User, foreignKey: 'id'}
+// });
 
 module.exports = { User, Garden, Progress };
