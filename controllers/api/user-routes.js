@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const isAuthed = require('../../utils/auth')
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -75,18 +76,24 @@ router.post('/logout', (req, res) => {
 //If you look at the user view you will see that I have two separate forms
 //There are also two separate handlers in editUser.js
 // UPDATE user/password
-router.put('/:id', async (req, res) => {
-  if (req.session.loggedIn) try {
+router.put('/:id', isAuthed, async (req, res) => {
+  console.log(req.session.user_id, req.params.id)
+  if (req.session.user_id !== parseInt(req.params.id)) {
+    return res.status(403).json({message: 'Incorrect User'});
+  }
+  const data = {}
+  if(req.body.username) {
+    data['username'] = req.body.username;
+  }
+  if(req.body.password) {
+    data['password'] = req.body.password;
+  }
+  try {
     const dbUserData = await User.update(
-      {
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-        
-      },
+     data,
       {
         where: {
-          id: req.params.id,
+          id: req.session.user_id,
         }
       }
     )
