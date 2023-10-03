@@ -20,10 +20,10 @@
     <nav>
       <a href='/' class="plant-font">Home</a>
       {{#if loggedIn}}
-        <a href='/progress' class="plant-font">Progress</a>
-        <a href='/garden' class="plant-font">Garden</a>
+        <a href='/progress' class="plant-font">Garden Progress</a>
+        {{!-- <a href='/garden' class="plant-font">Garden</a> --}}
         <a id='logout' href='#logout' class="plant-font">Logout</a>
-        <a id='user' href='/garden' class="plant-font">{{username}}</a>
+        <a id='user' href='/user' class="plant-font">{{username}}</a>
       {{else}}
         <a id='login' href='/login' class="plant-font">Login</a>
       {{/if}}
@@ -33,12 +33,13 @@
         {{#if title}}
           {{title}}
           {{#if garden_id}}
-            <h4>: {{getGardenName progressLogs}}</h4>
+            <h4 class="plant-font home">: {{getGardenName progressLogs}}</h4>
           {{/if}}
         {{else}}
           Grow Box
         {{/if}}
       </h3>
+      <img src="./assets/growboxlogo.png" class="header logo">
     </header>
     <main>
       {{{body}}}

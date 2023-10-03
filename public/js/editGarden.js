@@ -16,7 +16,7 @@ const newPlantHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/garden');
+      document.location.replace('/progress');
     } else {
       alert('Failed to add plant');
     }
@@ -31,7 +31,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/garden');
+      document.location.replace('/progress');
     } else {
       alert('Failed to destroy plant');
     }

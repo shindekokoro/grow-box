@@ -6,13 +6,14 @@ const isAuthed = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // If user is logged in, always re-direct to their garden.
-    if (req.session.loggedIn) {
-      return res.redirect('/garden');
-    }
+    // (Disable for now, possibly confusing ux design.)
+    // if (req.session.loggedIn) {
+    //   return res.redirect('/progress');
+    // }
     return res.render('homepage', {
       title: 'Grow Box',
       loggedIn: req.session.loggedIn,
-      username: req.session.session
+      username: req.session.username
     });
   } catch (err) {
     console.error(err);
@@ -68,12 +69,23 @@ router.get('/garden', isAuthed, async (req, res) => {
   });
 });
 
+//Sign-Up Route
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     return res.redirect('/');
   }
   return res.render('signup', {
     title: 'Signup'
+  });
+});
+
+//User Profile Route
+router.get('/user', isAuthed, async (req, res) => {
+  return res.render('user', {
+    title: 'User',
+    user_id: req.session.user_id,
+    loggedIn: req.session.loggedIn,
+    username: req.session.username
   });
 });
 

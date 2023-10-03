@@ -16,8 +16,11 @@
 {{#if garden_id}}
   {{> progress-form}}
 {{else}}
+{{> garden-form}}
   {{#each plants as |plant|}}
     {{> garden-plants}}
   {{/each}}
 {{/if}}
 </aside>
+
+<script src='./js/editGarden.js'></script>

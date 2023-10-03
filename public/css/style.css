@@ -208,6 +208,14 @@ form label {
   margin: 0px 0px 10px 0px !important;
 }
 
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
 /* FONTS */
 .plant-font {
   font-family: 'Lilita One', cursive;
@@ -222,4 +230,21 @@ form label {
 .info-font {
   font-family: 'IBM Plex Sans', sans-serif;
   color: var(--quaternary);
+  list-style-type: none;
+}
+
+.info-font ul {
+  padding-left: 0%;
+}
+.info-font li {
+  margin-bottom: 12.5px;
+}
+
+/* Image */
+.header.logo {
+  border-radius: 50%;
+  width: 5%;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
