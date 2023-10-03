@@ -39,7 +39,11 @@
           Grow Box
         {{/if}}
       </h3>
+      {{#if garden_id}}
+      <img src="../assets/growboxlogo.png" class="header logo">
+      {{else}}
       <img src="./assets/growboxlogo.png" class="header logo">
+      {{/if}}
     </header>
     <main>
       {{{body}}}
