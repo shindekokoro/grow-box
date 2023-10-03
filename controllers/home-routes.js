@@ -82,6 +82,7 @@ router.get('/signup', (req, res) => {
 router.get('/user', isAuthed, async (req, res) => {
   return res.render('user', {
     title: 'User',
+    user_id: req.session.user_id,
     loggedIn: req.session.loggedIn,
     username: req.session.username
   });
